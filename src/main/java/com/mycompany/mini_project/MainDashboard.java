@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class MainDashboard extends JFrame {
+
     public MainDashboard() {
         setTitle("Inventory Management - Dashboard");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,14 +74,23 @@ public class MainDashboard extends JFrame {
 
         add(root);
 
-        // Action listeners
+        // =========================================================
+        // START: REPLACING PLACEHOLDERS WITH ACTUAL FORM CALLS
+        // =========================================================
+        
         btnProducts.addActionListener(e -> new ProductForm().setVisible(true));
         btnCategories.addActionListener(e -> new CategoryForm().setVisible(true));
         btnSuppliers.addActionListener(e -> new SupplierForm().setVisible(true));
         btnCustomers.addActionListener(e -> new CustomerForm().setVisible(true));
         btnSales.addActionListener(e -> new SalesForm().setVisible(true));
         btnStock.addActionListener(e -> new StockReportForm().setVisible(true));
-        btnUsers.addActionListener(e -> new UserForm().setVisible(true));
+        
+        // Ensure you have the updated UserForm.java file
+        btnUsers.addActionListener(e -> new UserForm().setVisible(true)); 
+        
+        // =========================================================
+        // END: REPLACING PLACEHOLDERS WITH ACTUAL FORM CALLS
+        // =========================================================
     }
 
     private JPanel makeSummaryPanel(String title, String value){
@@ -93,9 +103,5 @@ public class MainDashboard extends JFrame {
         p.add(t, BorderLayout.WEST);
         p.add(v, BorderLayout.EAST);
         return p;
-    }
-
-    public static void main(String[] args){
-        EventQueue.invokeLater(() -> new MainDashboard().setVisible(true));
     }
 }
